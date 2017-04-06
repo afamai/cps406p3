@@ -12,5 +12,12 @@ if(!empty($_GET['page']))
 		$content = $tmp . ".php";
 	}
 }
-include('layouts/default.php');
-?>
+if($content == "report.html")
+{
+	include('layouts/reportLayout.php');
+}
+else
+{
+	include('layouts/default.php');
+}
+?>	
