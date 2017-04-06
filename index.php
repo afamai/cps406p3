@@ -1,15 +1,16 @@
 <?php
-include("includes/head.html");
-include("includes/header.html");
-$action = 'about';
-if(!empty($_GET['action']))
+$content = 'home.html';
+if(!empty($_GET['page']))
 {
-	$tmp = basename($_GET['action']);
-	if(file_exists("pages/$tmp.html"))
+	$tmp = basename($_GET['page']);
+	if(file_exists("views/$tmp.html"))
 	{
-		$action = $tmp;
+		$content = $tmp . ".html";
+	}
+	else if(file_exists("views/$tmp.php"))
+	{
+		$content = $tmp . ".php";
 	}
 }
-include("pages/$action.html");
-include("includes/footer.html");
+include('layouts/default.php');
 ?>
