@@ -1,27 +1,53 @@
-<form method="post" action="scripts/accountManager.php">
+<script src="scripts/validation.js"></script>
+<form name="register" method="post" action="scripts/accountManager.php" onsubmit="return registerValidation()">
 	<div class="form-group">
-	<label>Name</label>
-	<input type="text" class="form-control" placeholder="Name" name="name">
+	<label>First Name</label>
+	<input type="text" class="form-control" placeholder="First Name" name="firstname">
+	<p id="firstname"></p>
 	</div>
+	
+	<div class="form-group">
+	<label>Last Name</label>
+	<input type="text" class="form-control" placeholder="Last Name" name="lastname">
+	<p id="lastname"></p>
+	</div>
+	
 	<div class="form-group">
 	<label>Email</label>
 	<input type="email" class="form-control" placeholder="Email" name="email">
+	<p id="email"></p>
 	</div>
+	
 	<div class="form-group">
 	<label>Confirm Email</label>
-	<input type="email" class="form-control" placeholder="Username" name="username">
+	<input type="email" class="form-control" placeholder="Confirm Email" name="email2">
+	<p id="email2"></p>
 	</div>
+	
 	<div class="form-group">
 	<label>Phone Number</label>
-	<input type="tel" class="form-control" placeholder="Email" name="email">
+	<input type="tel" class="form-control" placeholder="Phone" name="phone">
+	<p id="phone"></p>
 	</div>
+	
+	<div class="form-group">
+	<label>Username</label>
+	<input type="text" class="form-control" placeholder="Username" name="username">
+	<p id="username"></p>
+	</div>
+	
 	<div class="form-group">
 	<label>Password</label>
 	<input type="password" class="form-control" placeholder="Password" name="password">
+	<p id="password"></p>
 	</div>
+	
 	<div class="form-group">
 	<label>Confirm Password</label>
 	<input type="password" class="form-control" placeholder="Confirm Password" name="password2">
+	<p id="password2"></p>
 	</div>
-	<button type="submit" class="btn-default">Submit</button>
+	
+	<input type="submit" value="Submit" class="btn-default">
 </form>
+<p id="test"></p>
