@@ -19,7 +19,7 @@ function registerValidation()
 	if(lastname.match("/[^a-zA-Z]/"))
 		document.getElementById("lastname").innerHTML = "Invalid last name";
 	
-	if(phone.match("/[^0-9]/"))
+	if(!(/^\d+$/.test(phone)))
 		document.getElementById("phone").innerHTML = "Invalid phone number";
 	
 	if(confirmEmail != email)
