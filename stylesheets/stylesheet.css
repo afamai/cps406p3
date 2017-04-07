@@ -1,0 +1,44 @@
+body{
+	background-color: #5f5f5f;
+}
+#container{
+	background-color: #fff;
+	width: 70%;
+	margin-left:15%;
+}
+h2 {
+	text-align: center;
+	display: inline-block;
+	margin-left:15%;
+}
+#ci{
+	margin-left: 0;
+}
+
+#incident{
+	background-color: #f1f1f1;
+	padding: 20px;
+}
+#contact{
+	background-color: #f1f1f1;
+	padding: 20px;
+	padding-top: 0;
+}
+#question{
+	background-color: #f1f1f1;
+	padding: 20px;
+}
+img{
+	display: inline-block;
+	height: 7%;
+	width: 7%;
+	align: left;
+}
+p{
+	display: inline-block;
+}
+#info p{
+	width: 50%;
+}
+
+

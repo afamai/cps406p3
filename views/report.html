@@ -1,1 +1,32 @@
-<h1>Report Page</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Cypress Report</title>
+  <link rel="stylesheet" href="stylesheet.css" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> 
+  </head>
+  <body>
+  <h2>Report</h2>
+  	<div id="container">
+  		<form id="report">
+  			<input type="radio" name="issue" value="Utility Failure"> Utility Failure<br>
+  			<input type="radio" name="issue" value="Potholes"> Potholes<br>
+  			<input type="radio" name="issue" value="Vandalism">Vandalism<br>
+  			<input type="radio" name="issue" value="Eroded Streets"> Eroded Streets<br>
+  			<input type="radio" name="issue" value="Flooded Streets">Flooded Streets<br>
+  			<input type="radio" name="issue" value="Tree Collapse">Tree Collapse<br>
+  			<input type="radio" name="issue" value="Mould and Spore Growth">Mould and Spore Growth<br>
+  			<input type="radio" name="issue" value="Garbage/other road Blocking Object">Garbage/ other road Blocking Object<br>
+  			<input type="text" name="address" placeholder="Address"><br>
+  			<textarea rows="4" cols="50" placeholder="Details Here"></textarea><br>
+  			<input type="submit" value="Submit" class="btn btn-default">
+  			<button type="button" onclick="" class="btn btn-default">Cancel</button>
+  		</form>
+  	</div>
+  </body>
+</html>

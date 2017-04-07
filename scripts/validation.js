@@ -1,6 +1,9 @@
 function registerValidation()
 {
 	var form = document.forms["register"];
+	
+	if(!checkFields(form)) return false;
+	
 	var firstname = form["firstname"].value;
 	var lastname = form["lastname"].value;
 	var email = form["email"].value;
@@ -34,6 +37,9 @@ function registerValidation()
 		if(elem.value == "")
 			document.getElementById(form[i].name).innerHTML = "Must fill required field";
 	}
+	/*
+	var url = "firstname=" + firstname + "&lastname=" + lastname + "&username=" + username + 
+	"&password=" + password + "&phone=" + phone + "&email=" + email;*/
 	return checkFields(form);
 }
 function clearErrorText(form)
@@ -53,4 +59,16 @@ function checkFields(form)
 			return false;
 	}
 	return true;
+}
+function checkAvailability(element) {
+	var value = element.getAttribute("name");
+	jQuery.ajax({
+		url: "scripts/checkAvailability.php",
+		data: value + "=" + $("input[name="+value+"]").val(),
+		type: "POST",
+		success:function(data){
+			$("#"+value).html(data);
+		},
+		error:function (){}
+	});
 }
