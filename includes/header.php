@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <header>
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
@@ -25,7 +26,7 @@
 				{
 					echo
 					'<ul class="nav navbar-nav navbar-right">
-						<li><a href="scripts/logout.php"><span class="glyphicon glyphicon-log-out"></span> Sign Up</a></li>
+						<li><a href="scripts/logout.php"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
 					</ul>';
 				}
 			

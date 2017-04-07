@@ -1,9 +1,6 @@
 function registerValidation()
 {
 	var form = document.forms["register"];
-	
-	if(!checkFields(form)) return false;
-	
 	var firstname = form["firstname"].value;
 	var lastname = form["lastname"].value;
 	var email = form["email"].value;
@@ -22,7 +19,7 @@ function registerValidation()
 	if(lastname.match("/[^a-zA-Z]/"))
 		document.getElementById("lastname").innerHTML = "Invalid last name";
 	
-	if(phone.match("/^[0-9]/"))
+	if(phone.match("/[^0-9]/"))
 		document.getElementById("phone").innerHTML = "Invalid phone number";
 	
 	if(confirmEmail != email)
@@ -37,9 +34,7 @@ function registerValidation()
 		if(elem.value == "")
 			document.getElementById(form[i].name).innerHTML = "Must fill required field";
 	}
-	/*
-	var url = "firstname=" + firstname + "&lastname=" + lastname + "&username=" + username + 
-	"&password=" + password + "&phone=" + phone + "&email=" + email;*/
+	
 	return checkFields(form);
 }
 function clearErrorText(form)

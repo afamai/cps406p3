@@ -22,7 +22,7 @@ else{
 	{
 		session_start();
 		$_SESSION["username"] = $username;
-		echo "1"
+		echo "1";
 	}
 	else 
 		echo "-1";
