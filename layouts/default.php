@@ -7,9 +7,9 @@
     <div id="horizontal-scroll">
     <div class="container"><b>
       <header>
-        <?php include 'includes/header.html'; ?>
+        <?php include 'includes/header.php'; ?>
       </header>
-      <div>
+      <div id="container">
         <?php include "views/$content" ?>
       </div>
     </div>

@@ -72,3 +72,26 @@ function checkAvailability(element) {
 		error:function (){}
 	});
 }
+function loginValidation()
+{
+	var form = document.forms["login"];
+	var username = form["username"].value;
+	var password = form["password"].value;
+	jQuery.ajax({
+		url: "scripts/login.php",
+		data: { username: username, password: password },
+		type: "POST",
+		success:function(data){
+			if(data < 0){
+				$("#error").html("Invalid username or password");
+			}
+			else{
+				window.location.replace("?page=home");
+			}
+		},
+		error:function (){
+			$("#error").html("Invalid username or password123");
+		}
+	});
+	return false;
+}

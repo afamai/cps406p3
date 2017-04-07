@@ -12,9 +12,9 @@ if(!empty($_GET['page']))
 		$content = $tmp . ".php";
 	}
 }
-if($content == "report.html")
+if($content == "profile.html")
 {
-	include('layouts/reportLayout.php');
+	include('layouts/profile.php');
 }
 else
 {
