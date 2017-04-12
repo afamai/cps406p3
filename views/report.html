@@ -1,15 +1,19 @@
+<script src="scripts/validation.js"></script>
 <h2>Report</h2>
-<form id="report">
+<form id="report" onsumbit="return reportValidation()">
+	<p>Problem (Please select 1)</p><br>
 	<input type="radio" name="issue" value="Utility Failure"> Utility Failure<br>
 	<input type="radio" name="issue" value="Potholes"> Potholes<br>
-	<input type="radio" name="issue" value="Vandalism">Vandalism<br>
+	<input type="radio" name="issue" value="Vandalism"> Vandalism<br>
 	<input type="radio" name="issue" value="Eroded Streets"> Eroded Streets<br>
-	<input type="radio" name="issue" value="Flooded Streets">Flooded Streets<br>
-	<input type="radio" name="issue" value="Tree Collapse">Tree Collapse<br>
-	<input type="radio" name="issue" value="Mould and Spore Growth">Mould and Spore Growth<br>
-	<input type="radio" name="issue" value="Garbage/other road Blocking Object">Garbage/ other road Blocking Object<br>
-	<input type="text" name="address" placeholder="Address"><br>
-	<textarea rows="4" cols="50" placeholder="Details Here"></textarea><br>
+	<input type="radio" name="issue" value="Flooded Streets"> Flooded Streets<br>
+	<input type="radio" name="issue" value="Tree Collapse"> Tree Collapse<br>
+	<input type="radio" name="issue" value="Mould and Spore Growth"> Mould and Spore Growth<br>
+	<input type="radio" name="issue" value="Garbage/other road Blocking Object"> Garbage/ other road Blocking Object<br><br>
+	<p>Location</p><br>
+	<input type="text" size="50" name="address" placeholder="Address"><br><br>
+	<p>Short Description (optional)</p><br>
+	<textarea rows="4" cols="50" maxlength="200" placeholder="Details Here (200 characters or less)" name="description"></textarea><br>
 	<input type="submit" value="Submit" class="btn btn-default">
 	<button type="button" onclick="" class="btn btn-default">Cancel</button>
 </form>

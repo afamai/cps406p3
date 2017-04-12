@@ -12,7 +12,6 @@
 ALTER TABLE report ADD CONSTRAINT report_refs FOREIGN KEY (accUsername) REFERENCES account (accUsername); -->
 
 <?php
-	$dbhost = 'localhost:3036';
 	$dbuser = 'root';
 	$dbpass = '';
 	$conn = mysqli_connect("localhost", $dbuser, $dbpass, "CYPRESS");
@@ -21,9 +20,9 @@ ALTER TABLE report ADD CONSTRAINT report_refs FOREIGN KEY (accUsername) REFERENC
 	}
 
 	$reportID = mysqli_real_escape_string($conn, $_POST['username']);
-	$accUsername = $_SESSION[""];
+	$accUsername = $_SESSION["username"];
 
-	$sql = "DELETE FROM report WHERE reportID = $reportID AND accUsername = $accUsername";
+	$sql = "DELETE FROM report WHERE ID = $reportID AND accUsername = $accUsername";
 	if (!mysqli_query($conn, $sql))
 	{
 	    echo "Error: " . $sql . "<br>" . mysqli_error($conn);

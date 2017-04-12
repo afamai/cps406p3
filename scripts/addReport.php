@@ -12,7 +12,6 @@
 ALTER TABLE report ADD CONSTRAINT report_refs FOREIGN KEY (accUsername) REFERENCES account (accUsername); -->
 
 <?php
-	$dbhost = 'localhost:3036';
 	$dbuser = 'root';
 	$dbpass = '';
 	$conn = mysqli_connect("localhost", $dbuser, $dbpass, "CYPRESS");
@@ -20,13 +19,13 @@ ALTER TABLE report ADD CONSTRAINT report_refs FOREIGN KEY (accUsername) REFERENC
 	    die("Connection failed: " . mysqli_connect_error());
 	}
 
-	$accUsername = $_SESSION[""];
-	$reportDescript = mysqli_real_escape_string($conn, $_POST['username']);
-	$reportLoc = mysqli_real_escape_string($conn, $_POST['username']);
-	$reportStatus = mysqli_real_escape_string($conn, $_POST['username']);
-	$reportType = mysqli_real_escape_string($conn, $_POST['username']);
+	$accUsername = $_SESSION["username"];
+	$reportDescript = mysqli_real_escape_string($conn, $_POST['description']);
+	$reportLoc = mysqli_real_escape_string($conn, $_POST['location']);
+	$reportStatus = mysqli_real_escape_string($conn, $_POST['status']);
+	$reportType = mysqli_real_escape_string($conn, $_POST['type']);
 
-	$sql = "INSERT INTO report (accUsername, reportDescript, reportLoc, reportStatus, reportType) 
+	$sql = "INSERT INTO reports (Username, Description, Location, Status, Type) 
 	VALUES ('$accUsername', '$reportDescript', '$reportLoc', '$reportStatus', '$reportType')";
 	if (!mysqli_query($conn, $sql))
 	{
