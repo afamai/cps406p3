@@ -1,12 +1,36 @@
-  <img style="height: 100px; width: 240px;" src="../Assets/logo.png"></img>
-<form method="post" action="/users/login">
+<img style="height: 100px; width: 240px;" src="../Assets/logo.png"></img><br>
+<script src="scripts/validation.js"></script>
+<script src="scripts/initialization.js"></script>
+<p id="indication"><br></p>
+<script>
+setTimeout(function(){document.getElementById("indication").innerHTML = "";}, 75);
+profileChangeInit();
+</script>
+
+<form  id="profile" method="post" action="scripts/editAccount.php" onsubmit="return profileValidation()">
+	
 	<div class="form-group">
-	<label>NAME</label>
-	<input type="text" class="form-control" placeholder="New Name" name="name">
+		<label>First Name</label>
+		<input type="text" class="form-control" placeholder="First Name" name="firstname">
+		<p class="warning" id="firstname"></p>
 	</div>
+		
 	<div class="form-group">
-	<label>Email</label>
-	<input type="email" class="form-control" placeholder="New email" name="email">
+		<label>Last Name</label>
+		<input type="text" class="form-control" placeholder="Last Name" name="lastname">
+		<p class="warning" id="lastname"></p>
 	</div>
-	<button type="submit" class="btn btn-default">Submit</button>
+	
+	<div class="form-group">
+		<label>Phone Number</label>
+		<input type="tel" class="form-control" placeholder="Phone number" name="phone">
+		<p class="warning" id="phone"></p>
+	</div>
+		
+	<div class="form-group">
+		<label>Email</label>
+		<input type="email" class="form-control" placeholder="Email" name="email" onblur="checkAvailability(this)">
+		<p class="warning" id="email"></p>
+	</div>
+	<input type="submit" value="Save" class="btn btn-default">
 </form>

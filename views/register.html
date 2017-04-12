@@ -1,54 +1,54 @@
 <script src="scripts/validation.js"></script>
 <h2>Register</h2>
-	  <img style="height: 100px; width: 240px;" src="../Assets/logo.png"></img>
-	  <form id="register" method="post" action="scripts/addAccount.php" onsubmit="return registerValidation()">
-	  
-		<div class="form-group">
-		<label>First Name</label>
-		<input type="text" class="form-control" placeholder="First Name" name="firstname">
-		<p class="warning" id="firstname"></p>
-		</div>
-		
-		<div class="form-group">
-		<label>Last Name</label>
-		<input type="text" class="form-control" placeholder="First Name" name="lastname">
-		<p class="warning" id="lastname"></p>
-		</div>
-		
-		<div class="form-group">
-		<label>Email</label>
-		<input type="email" class="form-control" placeholder="Email" name="email" onblur="checkAvailability(this)">
-		<p class="warning" id="email"></p>
-		</div>
-		
-		<div class="form-group">
-		<label>Confirm Email</label>
-		<input type="email" class="form-control" placeholder="Confirm Email" name="email2">
-		<p class="warning" id="email2"></p>
-		</div>
-		
-		<div class="form-group">
-		<label>Phone Number</label>
-		<input type="tel" class="form-control" placeholder="Phone number" name="phone">
-		<p class="warning" id="phone"></p>
-		</div>
-		
-		<div class="form-group">
-		<label>Username</label>
-		<input type="tel" class="form-control" placeholder="Username" name="username" onblur="checkAvailability(this)">
-		<p class="warning" id="username"></p>
-		</div>
-		
-		<div class="form-group">
-		<label>Password</label>
-		<input type="password" class="form-control" placeholder="Password" name="password">
-		<p class="warning" id="password"></p>
-		</div>
-		
-		<div class="form-group">
-		<label>Confirm Password</label>
-		<input type="password" class="form-control" placeholder="Confirm Password" name="password2">
-		<p class="warning" id="password2"></p>
-		</div>
-		<input type="submit" value="Submit" class="btn btn-default">
-	</form>
+<img style="height: 100px; width: 240px;" src="../Assets/logo.png"></img>
+<form id="register" method="post" onsubmit="return registerValidation()" >
+
+	<div class="form-group">
+	<label>First Name</label>
+	<input type="text" class="form-control" placeholder="First Name" name="firstname"/>
+	<p class="warning" id="firstname"></p>
+	</div>
+
+	<div class="form-group">
+	<label>Last Name</label>
+	<input type="text" class="form-control" placeholder="Last Name" name="lastname"/>
+	<p class="warning" id="lastname"></p>
+	</div>
+
+	<div class="form-group">
+	<label>Email</label>
+	<input type="email" class="form-control" placeholder="Email" name="email" onblur="checkAvailability(this)"/>
+	<p class="warning" id="email"></p>
+	</div>
+
+	<div class="form-group">
+	<label>Confirm Email</label>
+	<input type="email" class="form-control" placeholder="Confirm Email" name="email2"/>
+	<p class="warning" id="email2"></p>
+	</div>
+
+	<div class="form-group">
+	<label>Phone Number</label>
+	<input type="tel" class="form-control" placeholder="Phone number" name="phone"/>
+	<p class="warning" id="phone"></p>
+	</div>
+
+	<div class="form-group">
+	<label>Username</label>
+	<input type="tel" class="form-control" placeholder="Username" name="username" onblur="checkAvailability(this)"/>
+	<p class="warning" id="username"></p>
+	</div>
+
+	<div class="form-group">
+	<label>Password</label>
+	<input type="password" class="form-control" placeholder="Password" name="password"/>
+	<p class="warning" id="password"></p>
+	</div>
+
+	<div class="form-group">
+	<label>Confirm Password</label>
+	<input type="password" class="form-control" placeholder="Confirm Password" name="password2"/>
+	<p class="warning" id="password2"></p>
+	</div>
+	<input type="submit" class="btn btn-default" />
+</form>
