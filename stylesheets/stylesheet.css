@@ -44,8 +44,8 @@ body{
 }
 img{
 	display: inline-block;
-	height: 7%;
-	width: 7%;
+	height: 100%;
+	width: 100%;
 	align: left;
 }
 p{
@@ -72,5 +72,3 @@ p{
 	width:70%;
 	margin: 0 10px;
 }
-
-
