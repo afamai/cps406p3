@@ -145,7 +145,6 @@ function deleteReport(id)
 }
 function upvote(elem, id)
 {
-	window.alert(elem.src);
 	if(elem.src != "http://cypress/assets/upvote.png")
 	{
 		jQuery.ajax({
@@ -159,7 +158,18 @@ function upvote(elem, id)
 		});
 	}
 }
-function downvote(id)
+function downvote(elem, id)
 {
-	window.alert(id);
+	if(elem.src != "http://cypress/assets/downvote.png")
+	{
+		jQuery.ajax({
+			url: "scripts/upvote.php",
+			type: "GET",
+			data: {id : id, vote : -1 },
+			success:function(data){
+				window.location.reload();
+			},
+			error:function (){}
+		});
+	}
 }
