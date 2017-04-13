@@ -20,11 +20,11 @@ ALTER TABLE report ADD CONSTRAINT report_refs FOREIGN KEY (accUsername) REFERENC
 	    die("Connection failed: " . mysqli_connect_error());
 	}
 
-	$reportID = mysqli_real_escape_string($conn, $_POST['username']);
-	$accUsername = $_SESSION[""];
-	$reportDescript = mysqli_real_escape_string($conn, $_POST['username']);
-	$reportLoc = mysqli_real_escape_string($conn, $_POST['username']);
-	$reportType = mysqli_real_escape_string($conn, $_POST['username']);
+	$reportID = mysqli_real_escape_string($conn, $_POST['id']);
+	$accUsername = $_SESSION["username"];
+	$reportDescript = mysqli_real_escape_string($conn, $_POST['description']);
+	$reportLoc = mysqli_real_escape_string($conn, $_POST['address']);
+	$reportType = mysqli_real_escape_string($conn, $_POST['issue']);
 
 	$sql = "UPDATE report SET reportDescript=$reportDescript, reportLoc=$reportLoc, 
 	reportType=$reportType WHERE reportID = $reportID AND accUsername = $accUsername";
