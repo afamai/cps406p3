@@ -27,21 +27,21 @@ function homeInit()
 				document.getElementById("message").innerHTML = "No Submissions";
 			var obj = jQuery.parseJSON(data);
 			var table = document.getElementById("reports");
-			for(var i = 0; i < Object.keys(obj.reports_date).length; i++)
-			{
-				var report = obj.reports_date[i];
-				var row = table.insertRow(i);
-				var col = row.insertCell(0);
+			// for(var i = 0; i < Object.keys(obj.reports_date).length; i++)
+			// {
+			// 	var report = obj.reports_date[i];
+			// 	var row = table.insertRow(i);
+			// 	var col = row.insertCell(0);
 				
-				col.innerHTML = generateReport(report);
-			}
+			// 	col.innerHTML = generateHomeReport(report);
+			// }
 			for(var j = 0; j < Object.keys(obj.reports_priority).length; j++)
 			{
 				var report = obj.reports_priority[j];
 				var row = table.insertRow(j);
 				var col = row.insertCell(0);
 				
-				col.innerHTML = generateReport(report);
+				col.innerHTML = generateHomeReport(report);
 			}
 		},
 		error:function (){}
@@ -88,7 +88,7 @@ function generateHomeReport(report)
 			"<img class=\"vote-icon\" src=\"assets/voteup.png\"></img><br>"+
 			"<div>"+report.votes+"</div>"+
 			"<img class=\"vote-icon\" src=\"assets/votedown.png\"></img></div>";
-	html += "<div class=\"col-sm-7\"><h4>" + report.type + "</h4>"+
+	html += "<div class=\"col-sm-8\"><h4>" + report.type + "</h4>"+
 			"<p>Location: " + report.location + "</p><br>"+
 			"<p>" + report.description + "</p>";
 	if(report.description != "")
@@ -111,8 +111,8 @@ function generateHomeReport(report)
 	{
 		html += "<p>Status: No Solution Found</p><br>";
 	}
-	html += "<div class=\"col-sm-2\"><img src=\" " + getImg(report.type) + " \"></img></div>"; 
-	html += "</div></div></div>";
+	html += "</div><div class=\"col-sm-2\"><img src=\" " + getImg(report.type) + " \"></img></div>"; 
+	html += "</div></div>";
 	return html;
 }
 function generateReport(report)
@@ -121,7 +121,7 @@ function generateReport(report)
 			"<img class=\"vote-icon\" src=\"assets/voteup.png\"></img><br>"+
 			"<div>"+report.votes+"</div>"+
 			"<img class=\"vote-icon\" src=\"assets/votedown.png\"></img></div>";
-	html += "<div class=\"col-sm-7\"><h4>" + report.type + "</h4>"+
+	html += "<div class=\"col-sm-8\"><h4>" + report.type + "</h4>"+
 			"<p>Location: " + report.location + "</p><br>"+
 			"<p>" + report.description + "</p>";
 	if(report.description != "")
@@ -144,8 +144,7 @@ function generateReport(report)
 	{
 		html += "<p>Status: No Solution Found</p><br>";
 	}
-	html += "<div class=\"col-sm-2\"><img src=\" " + getImg(report.type) + " \"></img></div>"; 
-	html += "<a href=\"\" class=\"btn btn-default\">Edit Report</a>"+
-			"<a href=\"\" class=\"btn btn-default\">Delete Report</a></div></div></div>";
+	html += "</div><div class=\"col-sm-2\"><img src=\" " + getImg(report.type) + " \"></img></div>"; 
+	html += "</div></div>";
 	return html;
 }
