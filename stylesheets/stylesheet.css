@@ -16,6 +16,9 @@ body{
 	background-color: #eaebed;
 	padding: 20px;
 }
+#reports{
+	width:100%;
+}
 #contact{
 	background-color: #eaebed;
 	padding: 20px;
@@ -42,6 +45,16 @@ p{
 }
 .navbar{
 	background-color: #f8f8f8;
+}
+.white{
+	background-color:white;
+}
+#sidebar{
+	background-color:white;
+}
+.invitebtn{
+	width:70%;
+	margin: 0 10px;
 }
 
 

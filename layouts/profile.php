@@ -13,7 +13,7 @@
 			<div class="col-sm-3">
 				<?php include 'includes/profileSidebar.html'?>
 			</div>
-			<div class="col-sm-8">
+			<div class="col-sm-8 white">
 				<?php include "views/$content" ?>
 			</div>
 	  </div>
