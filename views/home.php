@@ -1,21 +1,34 @@
+<script type="text/javascript">
+	function showReport($i) {
+		var show;
+		var hide;
+		if ($i == 1) {
+			show = '.priority';
+			hide = '.date';
+		} else {
+			hide = '.priority';
+			show = '.date';
+		}
+		[].forEach.call(document.querySelectorAll(show), function (el) {
+			  el.style.display = '';
+		});
+		[].forEach.call(document.querySelectorAll(hide), function (el) {
+			  el.style.display = 'none';
+		});
+	}
+	
+	function showReportOnLoad() {
+		showReport(1);	
+	}
+</script>
+
 <h2>Recent Incidents</h2>
 <select>
-  <option value="volvo">Priority</option>
-  <option value="audi">Date</option>
+  <option value=1 onchange="showReport(value);">Priority</option>
+  <option value=2 onchange="showReport(value);">Date</option>
 </select>
 <a href="report.html" class="btn btn-default">Report Incident</a>
 <table>
-<?php include 'scripts/homeReport.php'; ?>
-<tr><div id="incident">
-	<p><img src="http://vignette2.wikia.nocookie.net/fantendo/images/1/1b/Super-mario-mushroom.jpg/revision/latest?cb=20120603230623"></img>
-	Lorem ipsum dolor sit amet, usu no malorum laoreet. Pro at volumus erroribus similique. Per in nemore sapientem consulatu, in duo possit epicurei urbanitas. Has vero accommodare ne, nam at essent delectus lucilius. Te assum erant animal cum, duis eius verear mei ad.</p>
-</div></tr><br>
-<tr><div id="incident">
-	<p><img src="http://vignette2.wikia.nocookie.net/fantendo/images/1/1b/Super-mario-mushroom.jpg/revision/latest?cb=20120603230623"></img>
-	Lorem ipsum dolor sit amet, usu no malorum laoreet. Pro at volumus erroribus similique. Per in nemore sapientem consulatu, in duo possit epicurei urbanitas. Has vero accommodare ne, nam at essent delectus lucilius. Te assum erant animal cum, duis eius verear mei ad.</p>
-</div></tr><br>
-<tr><div id="incident">
-	<p><img src="http://vignette2.wikia.nocookie.net/fantendo/images/1/1b/Super-mario-mushroom.jpg/revision/latest?cb=20120603230623"></img>
-	Lorem ipsum dolor sit amet, usu no malorum laoreet. Pro at volumus erroribus similique. Per in nemore sapientem consulatu, in duo possit epicurei urbanitas. Has vero accommodare ne, nam at essent delectus lucilius. Te assum erant animal cum, duis eius verear mei ad.</p>
-</div></tr>
+	<?php include 'scripts/homeReport.php'; ?>
 </table>
+<p onload="showReportOnLoad()"></p>
