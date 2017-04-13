@@ -1,3 +1,7 @@
+<script src="scripts/initialization.js"></script>
+<script>
+homeInit()
+</script>
 <script type="text/javascript">
 	function showReport($i) {
 		var show;
@@ -18,7 +22,7 @@
 	}
 	
 	function showReportOnLoad() {
-		showReport(1);	
+		showReport(2);	
 	}
 </script>
 
@@ -28,7 +32,6 @@
   <option value=2 onchange="showReport(value);">Date</option>
 </select>
 <a href="report.html" class="btn btn-default">Report Incident</a>
-<table>
-	<?php include 'scripts/homeReport.php'; ?>
+<table id="reports">
 </table>
 <p onload="showReportOnLoad()"></p>
