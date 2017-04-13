@@ -22,16 +22,12 @@ CREATE TABLE report (
     reportVotes INT NOT NULL DEFAULT 1 
 ) ENGINE=InnoDB;
 
-ALTER TABLE report ADD CONSTRAINT report_refs FOREIGN KEY (accUsername) REFERENCES accounts (Username);
+ALTER TABLE report ADD CONSTRAINT report_refs FOREIGN KEY (Username) REFERENCES accounts (Username);
 
 CREATE TABLE votes ( reportID INT, Username VARCHAR(25), val INT, PRIMARY KEY (reportID, Username) ) ENGINE=InnoDB;
 
 ALTER TABLE votes ADD CONSTRAINT vote_refs FOREIGN KEY (reportID) REFERENCES report (reportID); 
 ALTER TABLE votes ADD CONSTRAINT vote_refs2 FOREIGN KEY (Username) REFERENCES accounts (Username);
-
-======
-
-Test Values
 
 INSERT INTO accounts (Username, Password, Firstname, Lastname, Phone, Email) VALUES ('brucelee123' ,'dsadsadsa', 'bruce', 'lee', '4169671111', 'brucelee@gmail.com');
 INSERT INTO accounts (Username, Password, Firstname, Lastname, Phone, Email) VALUES ('biggerthan','dsadsadsa', 'big', 'small', '4169671111', 'medium@gmail.com');
