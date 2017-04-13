@@ -31,7 +31,7 @@ homeInit()
   <option value=1 onchange="showReport(value);">Priority</option>
   <option value=2 onchange="showReport(value);">Date</option>
 </select>
-<a href="report.html" class="btn btn-default">Report Incident</a>
+<a href="?page=report" class="btn btn-default">Report Incident</a>
 <table id="reports">
 </table>
 <p onload="showReportOnLoad()"></p>

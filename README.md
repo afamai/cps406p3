@@ -43,3 +43,15 @@ INSERT INTO report (Username, reportDescript, reportLoc, reportType, reportVotes
 INSERT INTO report (Username, reportDescript, reportLoc, reportType, reportVotes) VALUES ('biggerthan', 'Mould inside my apartment. Landlord will not fix.', 'Eglinton and Bayview', 'Mould and Spore Growth', 1000);
 INSERT INTO report (Username, reportDescript, reportLoc, reportType, reportVotes) VALUES ('biggerthan', 'Water main for my apartment burst. Need help. Dying of thirst.', 'Eglinton and Bayview', 'Utility Failure', 40);
 INSERT INTO report (Username, reportDescript, reportLoc, reportType, reportVotes) VALUES ('fatman', 'Stinking kids vandalized the statue at my park.', 'Gerrard and Jones', 'Vandalism', 500);
+
+Known Issues
+
+==================
+
+Due to the shortage of team members there was a number of bugs/problems.
+
+User can vote more than once.
+No suggestion feature.
+No notification or survey.
+
+With lack of testing there is many bugs that exist and have yet to be found.
