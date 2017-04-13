@@ -1,20 +1,8 @@
-<!-- CREATE TABLE votes (
-	reportID INT,
-	accUsername VARCHAR(25),
-	val INT,
-	PRIMARY KEY (reportID, accUsername)
-) ENGINE=InnoDB; 
-
-ALTER TABLE votes ADD CONSTRAINT vote_refs FOREIGN KEY (reportID) REFERENCES report (reportID);
-ALTER TABLE votes ADD CONSTRAINT vote_refs2 FOREIGN KEY (accUsername) REFERENCES account (accUsername); -->
-
 <?php
-	$dbhost = 'localhost:3036';
-	$dbuser = 'root';
-	$dbpass = '';
-	$conn = mysqli_connect("localhost", $dbuser, $dbpass, "CYPRESS");
-	if (!$conn) {
-	    die("Connection failed: " . mysqli_connect_error());
+	session_start();
+	$conn = mysqli_connect('localhost', 'root', '', 'CYPRESS');
+	if (mysqli_connect_errno()) {
+	    die('Connection failed');
 	}
 
 	$reportID = mysqli_real_escape_string($conn, $_GET['id']);
