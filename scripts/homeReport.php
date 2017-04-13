@@ -39,7 +39,7 @@
 			<input type="hidden" name="vote" value=-1>
 			<input type="hidden" name="id" value='.$row['reportId'].'>
 			<button type="button" form="downvoteForm" class="btn btn-danger">Downvote</button>
-		</form> </p> </div> </tr> <br>'
+		</form> </p> </div> </tr> <br>';
 	while ($row = mysql_fetch_array($date_val, MYSQL_ASSOC)) {
 		echo '<tr> <div id="incident" class="date"> <p>';
 	    echo $str;
