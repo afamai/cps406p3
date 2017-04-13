@@ -17,9 +17,9 @@ ALTER TABLE votes ADD CONSTRAINT vote_refs2 FOREIGN KEY (accUsername) REFERENCES
 	    die("Connection failed: " . mysqli_connect_error());
 	}
 
-	$reportID = mysqli_real_escape_string($conn, $_POST['username']);
-	$accUsername = $_SESSION[""];
-	$vote = mysqli_real_escape_string($conn, $_POST['username']);
+	$reportID = mysqli_real_escape_string($conn, $_POST['id']);
+	$accUsername = $_SESSION["username"];
+	$vote = mysqli_real_escape_string($conn, $_POST['vote']);
 
 	$sql = "SELECT COUNT(reportID) FROM report WHERE reportID = $reportID AND accUsername = $accUsername";
 
