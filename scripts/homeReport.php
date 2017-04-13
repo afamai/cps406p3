@@ -1,32 +1,25 @@
 <?php
-	$dbhost = 'localhost:3036';
-	$dbuser = 'root';
-	$dbpass = '';
-	$conn = mysqli_connect($dbhost, $dbuser, $dbpass, "CYPRESS");
-	if (!$conn) {
-	    die("Connection failed: " . mysqli_connect_error());
+	$conn = mysqli_connect('localhost', 'root', '', 'CYPRESS');
+	if (mysqli_connect_errno()) {
+	    die('Connection failed');
 	}
 
 	$date_sql = "SELECT reportDate, reportDescript, reportLoc, reportVotes FROM report WHERE reportStatus = 0 ORDER BY reportDate DESC";
 	$priority_sql = "SELECT reportDate, reportDescript, reportLoc, reportVotes FROM report WHERE reportStatus = 0 ORDER BY reportVotes DESC";
-	$img_arr = array(
-		"Utility Failure" => "/assets/utility.png",
-		"Potholes" => "/assets/pothole.png",
-		"Vandalism" => "/assets/graffiti.png",
-		"Eroded Streets" => "/assets/road.png",
-		"Flooded Streets" => "/assets/flood.png",
-		"Tree Collapse" => "/assets/tree.png",
-		"Mould and Spore Growth" => "/assets/mould.png",
-		"Garbage or Other Road Blocking Objects" => "/assets/trash.png");
+	$img_arr = array("/assets/utility.png","/assets/pothole.png","/assets/graffiti.png",
+					 "/assets/road.png","/assets/flood.png","/assets/tree.png","/assets/mould.png",
+					 "/assets/trash.png");
 
-	$date_val = mysql_query( $date_sql, $conn ); 
-	$priority_val = mysql_query( $priority_sql, $conn ); 
+	$date_val = mysqli_query( $conn, $date_sql ); 
+	$priority_val = mysqli_query( $conn, $priority_sql ); 
 	if ( (!$date_val) || (!$priority_val) ) {
 	  die('Could not get data: ' . mysql_error());
 	}
 
-	$str = 		
-		'<img src='.$img_arr[$row['reportType']].'> </img>
+	while($row = mysqli_fetch_assoc($priority_val)) {
+		echo 
+		'<tr> <div id="incident" class="date"> <p>
+		<img src='.$img_arr[$row['reportType']].'> </img>
 		<h3> <b>'.$row['reportLoc'].'</b> </h3> <br>'
 		.$row['reportDescript'].'<br>
 		Votes - '.$row['reportVotes'].'<br>
@@ -40,13 +33,24 @@
 			<input type="hidden" name="id" value='.$row['reportId'].'>
 			<button type="button" form="downvoteForm" class="btn btn-danger">Downvote</button>
 		</form> </p> </div> </tr> <br>';
-	while ($row = mysql_fetch_array($date_val, MYSQL_ASSOC)) {
-		echo '<tr> <div id="incident" class="date"> <p>';
-	    echo $str;
 	}
-	while ($row = mysql_fetch_array($priority_val, MYSQL_ASSOC)) {
-		echo '<tr> <div id="incident" class="priority"> <p>';
-	    echo $str;
+	while($row = mysqli_fetch_assoc($date_val)) {
+		echo
+		'<tr> <div id="incident" class="date"> <p>
+		<img src='.$img_arr[$row['reportType']].'> </img>
+		<h3> <b>'.$row['reportLoc'].'</b> </h3> <br>'
+		.$row['reportDescript'].'<br>
+		Votes - '.$row['reportVotes'].'<br>
+		<form action="/scripts/upvote.php" method="post" id="upvoteForm">
+			<input type="hidden" name="vote" value=1>
+			<input type="hidden" name="id" value='.$row['reportId'].'>
+			<button type="button" form="upvoteForm" class="btn btn-success">Upvote</button>
+		</form>
+		<form action="/scripts/upvote.php" method="post" id="downvoteForm">
+			<input type="hidden" name="vote" value=-1>
+			<input type="hidden" name="id" value='.$row['reportId'].'>
+			<button type="button" form="downvoteForm" class="btn btn-danger">Downvote</button>
+		</form> </p> </div> </tr> <br>';
 	}
 
 	mysqli_close($conn);
