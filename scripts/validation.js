@@ -124,7 +124,7 @@ function loginValidation()
 }
 /*
 This function is used to validate the user info in the changeInfo page
-*/)
+*/
 function profileValidation()
 {
 	//get form data
@@ -207,4 +207,36 @@ function passwordValidation()
 		});
 	}
 	return false;
+}
+function reportValidation()
+{
+	var form = document.forms["report"];
+	var address = form["address"].value;
+	
+	//clear all error messages
+	document.getElementById('issue').innerHTML = "";
+	document.getElementById('address').innerHTML = "";
+	
+	//get the issue from the radio buttons
+	var radios = document.getElementsByName('issue');
+	var problem = "";
+	for (var i = 0 ; i < radios.length; i++) {
+		if (radios[i].checked) {
+			//get the checked vlaue
+			var problem = radios[i].value;
+
+			// only one radio can be logically checked, don't check the rest
+			break;
+		}
+	}
+	//if no input print error
+	if(address == "")
+	{
+		document.getElementById('address').innerHTML = "Must fill required field";
+	}
+	if(problem == "")
+	{
+		document.getElementById('issue').innerHTML = "Please Select 1";
+	}
+	return (address != "" && problem != "");
 }

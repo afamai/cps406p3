@@ -1,7 +1,8 @@
 <script src="scripts/validation.js"></script>
 <h2>Report</h2>
-<form id="report" onsumbit="return reportValidation()">
-	<p>Problem (Please select 1)</p><br>
+<form id="report" method="post" action="scripts/addReport.php">
+	<p>Problem</p>
+	<p class="warning" id="issue"></p><br>
 	<input type="radio" name="issue" value="Utility Failure"> Utility Failure<br>
 	<input type="radio" name="issue" value="Potholes"> Potholes<br>
 	<input type="radio" name="issue" value="Vandalism"> Vandalism<br>
@@ -9,11 +10,14 @@
 	<input type="radio" name="issue" value="Flooded Streets"> Flooded Streets<br>
 	<input type="radio" name="issue" value="Tree Collapse"> Tree Collapse<br>
 	<input type="radio" name="issue" value="Mould and Spore Growth"> Mould and Spore Growth<br>
-	<input type="radio" name="issue" value="Garbage/other road Blocking Object"> Garbage/ other road Blocking Object<br><br>
+	<input type="radio" name="issue" value="Garbage or Other Road Blocking Object"> Garbage or Other Road Blocking Objects<br><br>
 	<p>Location</p><br>
-	<input type="text" size="50" name="address" placeholder="Address"><br><br>
+	<input type="text" size="50" name="address" placeholder="Address"><br>
+	<p class="warning" id="address"></p><br>
 	<p>Short Description (optional)</p><br>
+	<p class="warning" id="description"></p>
 	<textarea rows="4" cols="50" maxlength="200" placeholder="Details Here (200 characters or less)" name="description"></textarea><br>
+	<input type="hidden" name="status" value="0">
 	<input type="submit" value="Submit" class="btn btn-default">
 	<button type="button" onclick="" class="btn btn-default">Cancel</button>
 </form>
