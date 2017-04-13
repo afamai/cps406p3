@@ -1,23 +1,7 @@
-<!-- CREATE TABLE report (
-    reportID INT PRIMARY KEY AUTO_INCREMENT,
-    accUsername VARCHAR(25) NOT NULL,
-    reportDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    reportDescript VARCHAR(300) NOT NULL,
-    reportLoc VARCHAR(25) NOT NULL,
-    reportStatus SMALLINT NOT NULL DEFAULT 0,
-    reportType SMALLINT NOT NULL,
-    reportVotes INT NOT NULL DEFAULT 1
-) ENGINE=InnoDB;
-
-ALTER TABLE report ADD CONSTRAINT report_refs FOREIGN KEY (accUsername) REFERENCES account (accUsername); -->
-
 <?php
-	$dbhost = 'localhost:3036';
-	$dbuser = 'root';
-	$dbpass = '';
-	$conn = mysqli_connect("localhost", $dbuser, $dbpass, "CYPRESS");
-	if (!$conn) {
-	    die("Connection failed: " . mysqli_connect_error());
+	$conn = mysqli_connect('localhost', 'root', '', 'CYPRESS');
+	if (mysqli_connect_errno()) {
+	    die('Connection failed');
 	}
 
 	$reportID = mysqli_real_escape_string($conn, $_POST['id']);
