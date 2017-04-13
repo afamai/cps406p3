@@ -16,8 +16,15 @@ body{
 	background-color: #eaebed;
 	padding: 20px;
 }
+#vote{
+	background-color: #eaebed;
+}
 #reports{
 	width:100%;
+	border-collapse: collapse;
+}
+#reports, td, th{
+	border: 10px solid white;
 }
 #contact{
 	background-color: #eaebed;
@@ -27,6 +34,13 @@ body{
 #question{
 	background-color: #eaebed;
 	padding: 20px;
+}
+.vote{
+	text-align:center
+}
+.vote-icon{
+	width:30px;
+	height:100%;
 }
 img{
 	display: inline-block;
@@ -48,9 +62,11 @@ p{
 }
 .white{
 	background-color:white;
+	padding: 15px;
 }
 #sidebar{
 	background-color:white;
+	padding: 0 0 10px 0;
 }
 .invitebtn{
 	width:70%;

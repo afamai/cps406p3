@@ -240,3 +240,55 @@ function reportValidation()
 	}
 	return (address != "" && problem != "");
 }
+function deleteValidation()
+{
+	var form = document.forms["deleteAccount"];
+	var password = form["pass1"].value;
+	document.getElementById('pass1').innerHTML = "";
+	document.getElementById('other').innerHTML = "";
+	
+	var radios = document.getElementsByName('issue');
+	var reason = "";
+	for (var i = 0 ; i < radios.length; i++) {
+		if (radios[i].checked) {
+			//get the checked vlaue
+			var reason = radios[i].value;
+
+			// only one radio can be logically checked, don't check the rest
+			break;
+		}
+	}
+	
+	if(password == "")
+	{
+		document.getElementById('pass1').innerHTML = "Must fill required field";
+	}
+	if(reason == "Other" && document.getElementById('otherReason').value == "")
+	{
+		document.getElementById('other').innerHTML = "Please indicate your reason";
+	}
+	else{
+		reason = document.getElementById('otherReason').value;
+	}
+	
+	if(document.getElementById('pass1').innerHTML == document.getElementById('other').innerHTML)
+	{
+		jQuery.ajax({
+			url: "scripts/deleteAccount.php",
+			data: {password : password, reason : reason},
+			type: "POST",
+			success:function(data){
+				if(data < 0){
+					//if the password was incorrect as user to try again.
+					$("#pass1").html("Incorrect password. Try again.");
+				}
+				else{
+					window.location.replace("scripts/logout.php");
+				}
+			},
+			error:function (){}
+		});
+	}
+	return false;
+	
+}

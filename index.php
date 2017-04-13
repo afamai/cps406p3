@@ -1,5 +1,5 @@
 <?php
-$content = 'home.html';
+$content = 'home.php';
 if(!empty($_GET['page']))
 {
 	$tmp = basename($_GET['page']);
@@ -12,7 +12,7 @@ if(!empty($_GET['page']))
 		$content = $tmp . ".php";
 	}
 }
-if($content == "profile.html" || $content == "changePic.html" || $content == "changeInfo.html" || $content == "changePassword.html")
+if($content == "profile.html" || $content == "changePic.html" || $content == "changeInfo.html" || $content == "changePassword.html" || $content == "deleteAccount.html")
 {
 	include('layouts/profile.php');
 }

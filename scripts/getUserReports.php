@@ -16,14 +16,23 @@ if (!$result)
 }
 else
 {
+	$count = 0;
 	while($row = mysqli_fetch_array($result))
 	{
 		$reports[] = array("id" => $row["reportID"], "user" => $user, "date" => $row["reportDate"], "description" => $row["reportDescript"], 
 		"location" => $row["reportLoc"], "status" => $row["reportStatus"], "type" => $row["reportType"], "votes" => $row["reportVotes"]);
+		$count++;
 	}
 }
-$reports = array("reports" => $reports);
-echo json_encode($reports);
+if($count > 0)
+{
+	$reports = array("reports" => $reports);
+	echo json_encode($reports);
+}
+else
+{
+	echo -1;
+}
 mysqli_close($conn);
 die();
 ?>

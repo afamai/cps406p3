@@ -22,6 +22,8 @@ function profileInit()
 		url: "scripts/getUserReports.php",
 		type: "POST",
 		success:function(data){
+			if(data == -1)
+				document.getElementById("message").innerHTML = "No Submissions";
 			var obj = jQuery.parseJSON(data);
 			var table = document.getElementById("reports");
 			for(var i = 0; i < Object.keys(obj.reports).length; i++)
@@ -39,7 +41,11 @@ function profileInit()
 }
 function generateReport(report)
 {
-	html = "<div id=\"incident\"><h4>" + report.type + "</h4>"+
+	html = "<div id=\"incident\"><div class=\"row\"><div class=\"col-sm-2 vote\">"+
+			"<img class=\"vote-icon\" src=\"assets/voteup.png\"></img><br>"+
+			"<div>"+report.votes+"</div>"+
+			"<img class=\"vote-icon\" src=\"assets/votedown.png\"></img></div>";
+	html += "<div class=\"col-sm-10\"><h4>" + report.type + "</h4>"+
 			"<p>Location: " + report.location + "</p><br>"+
 			"<p>" + report.description + "</p>";
 	if(report.description != "")
@@ -48,21 +54,21 @@ function generateReport(report)
 	html += "<p>Posted at " + report.date + " by " + report.user + "</p><br>";
 	if(report.status == 0)
 	{
-		html += "<p>Status: No Solution Found</p><br>";
+		html += "<p>Status: Looking for a Solution</p><br>";
 	}
 	else if(report.status == 1)
 	{
-		html += "<p>Status: Looking for a Solution</p><br>";
+		html += "<p>Status: Currently Solving the Issue</p><br>";
 	}
 	else if(report.status == 2)
 	{
-		html += "<p>Status: Currently Solving the Issue</p><br>";
-	}
-	else if(report.status == 3)
-	{
 		html += "<p>Status: Problem Resolved</p><br>"
 	}
+	else if(report.status == 4)
+	{
+		html += "<p>Status: No Solution Found</p><br>";
+	}
 	html += "<a href=\"\" class=\"btn btn-default\">Edit Report</a>"+
-			"<a href=\"\" class=\"btn btn-default\">Delete Report</a></div>";
+			"<a href=\"\" class=\"btn btn-default\">Delete Report</a></div></div></div>";
 	return html;
 }

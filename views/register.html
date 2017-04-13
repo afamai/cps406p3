@@ -1,7 +1,7 @@
 <script src="scripts/validation.js"></script>
 <h2>Register</h2>
 <img style="height: 100px; width: 240px;" src="../Assets/logo.png"></img>
-<form id="register" method="post" onsubmit="return registerValidation()" >
+<form id="register" method="post" action="scripts/addAccount.php" onsubmit="return registerValidation()" >
 
 	<div class="form-group">
 	<label>First Name</label>
@@ -50,5 +50,5 @@
 	<input type="password" class="form-control" placeholder="Confirm Password" name="password2"/>
 	<p class="warning" id="password2"></p>
 	</div>
-	<input type="submit" class="btn btn-default" />
+	<input type="submit" class="btn btn-default" value="Register"/>
 </form>

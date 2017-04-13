@@ -1,0 +1,20 @@
+<script src="scripts/validation.js"></script>
+<h3>Delete Account</h3>
+<hr>
+<form id="deleteAccount" method="post" onsubmit="return deleteValidation()">
+	<div class="form-group">
+		<label>Enter Password</label>
+		<input type="password" class="form-control" placeholder="Password" name="pass1"/>
+		<p class="warning" id="pass1"></p><br>
+		<p>Reason (optional)</p>
+		<p class="warning" id="reason"></p><br>
+		<input type="radio" name="reason" value="I don't need it anymore"> I don't need it anymore<br>
+		<input type="radio" name="reason" value="System crashes often"> System crashes often<br>
+		<input type="radio" name="reason" value="Takes too long to load"> Takes too long to load<br>
+		<input type="radio" name="reason" value="Solutions to issues takes too long"> Solutions to issues takes too long<br>
+		<input type="radio" name="reason" value="Other"> Other
+		<input type="text" id="otherReason" name="other" class="form-control" >
+		<p class="warning" id="other"></p><br>
+	</div>
+	<input type="submit" value="Delete Account" class="btn btn-default">
+</form>
