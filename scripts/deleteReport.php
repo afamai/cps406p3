@@ -19,7 +19,7 @@ ALTER TABLE report ADD CONSTRAINT report_refs FOREIGN KEY (accUsername) REFERENC
 	    die("Connection failed: " . mysqli_connect_error());
 	}
 
-	$reportID = mysqli_real_escape_string($conn, $_POST['username']);
+	$reportID = mysqli_real_escape_string($conn, $_POST['id']);
 	$accUsername = $_SESSION["username"];
 
 	$sql = "DELETE FROM report WHERE ID = $reportID AND accUsername = $accUsername";
