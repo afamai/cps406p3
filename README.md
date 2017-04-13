@@ -11,6 +11,16 @@ CREATE TABLE accounts (
     Email VARCHAR(100) NOT NULL 
 );
 
+CREATE TABLE deleted ( 
+    Username VARCHAR(25) PRIMARY KEY, 
+    Password VARCHAR(200) NOT NULL, 
+    Firstname VARCHAR(25) NOT NULL, 
+    Lastname VARCHAR(50) NOT NULL, 
+    Phone VARCHAR(25) NOT NULL, 
+    Email VARCHAR(100) NOT NULL,
+	Reason VARCHAR(150) NOT NULL
+);
+
 CREATE TABLE report ( 
     reportID INT PRIMARY KEY AUTO_INCREMENT, 
     Username VARCHAR(30) NOT NULL, 
