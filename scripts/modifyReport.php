@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	$conn = mysqli_connect('localhost', 'root', '', 'CYPRESS');
 	if (mysqli_connect_errno()) {
 	    die('Connection failed');
