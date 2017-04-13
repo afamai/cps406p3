@@ -1,6 +1,6 @@
 body{
 	/*background-color: #5f5f5f;*/
-	background-color: white;
+	background-color: #f0f0f0;
 }
 #container{
 	margin:auto;
@@ -13,16 +13,16 @@ body{
 }
 
 #incident{
-	background-color: #f1f1f1;
+	background-color: #eaebed;
 	padding: 20px;
 }
 #contact{
-	background-color: #f1f1f1;
+	background-color: #eaebed;
 	padding: 20px;
 	padding-top: 0;
 }
 #question{
-	background-color: #f1f1f1;
+	background-color: #eaebed;
 	padding: 20px;
 }
 img{
@@ -39,6 +39,9 @@ p{
 }
 .warning{
 	color:red;
+}
+.navbar{
+	background-color: #f8f8f8;
 }
 
 
