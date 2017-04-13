@@ -39,12 +39,54 @@ function profileInit()
 		error:function (){}
 	});
 }
+function editReportInit()
+{
+	if(getCookie("id") != "")
+	{
+		var form = document.forms["report"];
+		var radios = document.getElementsByName('issue');
+		var type = getCookie("type");
+		for (var i = 0 ; i < radios.length; i++) {
+			if (type == radios[i].value) {
+				radios[i].checked = true;
+				break;
+			}
+		}
+		form["address"].value = getCookie("address");
+		form["description"].value = getCookie("description");
+		form["id"].value = getCookie("id");
+	}	
+}
+function deleteCookies()
+{
+	document.cookie = "id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+	document.cookie = "type=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+	document.cookie = "address=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+	document.cookie = "description=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
+function getCookie(name)
+{
+	var decodedCookie = decodeURIComponent(document.cookie);
+    var values = decodedCookie.split(';');
+	for(var i = 0 ; i < values.length; i++)
+	{
+		var str = values[i];
+		while (str.charAt(0) == ' ') {
+            str = str.substring(1);
+        }
+        if (str.indexOf(name) == 0) {
+            return str.substring(name.length+1, str.length);
+        }
+	}
+	return "";
+}
 function generateReport(report)
 {
 	html = "<div id=\"incident\"><div class=\"row\"><div class=\"col-sm-2 vote\">"+
-			"<img class=\"vote-icon\" src=\"assets/voteup.png\"></img><br>"+
+			
+			"<img class=\"vote-icon\" onclick=\"upvote(this, " + report.id + ")\" src=\"assets/voteup.png\"></img><br>"+
 			"<div>"+report.votes+"</div>"+
-			"<img class=\"vote-icon\" src=\"assets/votedown.png\"></img></div>";
+			"<img class=\"vote-icon\" onclick=\"downvote(this, "+ report.id +")\" src=\"assets/votedown.png\"></img></div>";
 	html += "<div class=\"col-sm-10\"><h4>" + report.type + "</h4>"+
 			"<p>Location: " + report.location + "</p><br>"+
 			"<p>" + report.description + "</p>";
@@ -68,7 +110,56 @@ function generateReport(report)
 	{
 		html += "<p>Status: No Solution Found</p><br>";
 	}
-	html += "<a href=\"\" class=\"btn btn-default\">Edit Report</a>"+
-			"<a href=\"\" class=\"btn btn-default\">Delete Report</a></div></div></div>";
+	
+	html += "<a onclick=\"editReport(" + report.id + ",'" + report.type + "','" + report.location +"','"+ report.description +"')\" class=\"btn btn-default\">Edit Report</a>";
+	html += "<a onclick=\"deleteReport("+ report.id + ")\" class=\"btn btn-default\">Delete Report</a></div></div></div>";
 	return html;
+}
+function editReport(id, type, location, description)
+{
+	document.cookie = "id=" + id + ";";
+	document.cookie = "type=" + type +";";
+	document.cookie = "address=" + location +";";
+	document.cookie = "description=" + description +";";
+	
+	var date = new Date();
+	var exdays = 7;
+	date.setTime(date.getTime() + exdays*24*60*60*1000);
+	document.cookie = "expires=" + date.toUTCString();
+	window.location.replace("?page=editReport");
+}
+function deleteReport(id)
+{
+	if(window.confirm("Are you sure?"))
+	{
+		jQuery.ajax({
+			url: "scripts/deleteReport.php",
+			type: "POST",
+			data: "id=" + id,
+			success:function(data){
+				window.location.reload();
+			},
+			error:function (){}
+		});
+	}
+}
+function upvote(elem, id)
+{
+	window.alert(elem.src);
+	if(elem.src != "http://cypress/assets/upvote.png")
+	{
+		jQuery.ajax({
+			url: "scripts/upvote.php",
+			type: "GET",
+			data: {id : id, vote : 1 },
+			success:function(data){
+				window.location.reload();
+			},
+			error:function (){}
+		});
+	}
+}
+function downvote(id)
+{
+	window.alert(id);
 }

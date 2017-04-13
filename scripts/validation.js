@@ -210,6 +210,7 @@ function passwordValidation()
 }
 function reportValidation()
 {
+	window.alert("test");
 	var form = document.forms["report"];
 	var address = form["address"].value;
 	
@@ -253,7 +254,7 @@ function deleteValidation()
 		if (radios[i].checked) {
 			//get the checked vlaue
 			var reason = radios[i].value;
-
+			window.alert(reason);
 			// only one radio can be logically checked, don't check the rest
 			break;
 		}

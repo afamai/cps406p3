@@ -11,11 +11,33 @@
 	$reportType = mysqli_real_escape_string($conn, $_POST['issue']);
 	$sql = "INSERT INTO reports (accUsername, reportDescript, reportLoc, reportType) 
 	VALUES ('$accUsername', '$reportDescript', '$reportLoc', '$reportType')";
-	if (!mysqli_query($conn, $sql))
+	$result = mysqli_query($conn, $sql);
+	if (!$result)
 	{
 	    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
+	else
+	{
+		$sql = "SELECT LAST_INSERT_ID()";
+		$result = mysqli_query($conn, $sql);
+		if (!$result)
+		{
+			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		}
+		else
+		{
+			$row = mysqli_fetch_array($result);
+			$id = $row[0];
+			$sql = "INSERT INTO votes (reportID, accUsername, val)
+			VALUES ('$id', '$accUsername', 1)";
+			$result = mysqli_query($conn, $sql);
+			if (!$result)
+			{
+				echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+			}
+		}
+	}
 	mysqli_close($conn);
-	header("Location: ../?page=reportSent");
+	//header("Location: ../?page=reportSent");
 	die();
 ?>

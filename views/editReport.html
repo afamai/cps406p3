@@ -1,6 +1,8 @@
 <script src="scripts/validation.js"></script>
-<h2>Report</h2>
-<form id="report" method="post" action="scripts/addReport.php" onsubmit="return reportValidation()">
+<script src="scripts/initialization.js"></script>
+<h2>Edit Report</h2>
+<p id="test"></p>
+<form id="report" method="post" action="scripts/modifyReport.php" onsubmit="if(reportValidation()){ deleteCookies(); return true;} else return false;">
 	<p>Problem</p>
 	<p class="warning" id="issue"></p><br>
 	<input type="radio" name="issue" value="Utility Failure"> Utility Failure<br>
@@ -17,6 +19,10 @@
 	<p>Short Description (optional)</p><br>
 	<p class="warning" id="description"></p>
 	<textarea rows="4" cols="50" maxlength="200" placeholder="Details Here (200 characters or less)" name="description"></textarea><br>
+	<input type="hidden" name="id">
 	<input type="submit" value="Submit" class="btn btn-default">
 	<button type="button" onclick="" class="btn btn-default">Cancel</button>
 </form>
+<script>
+editReportInit();
+</script>

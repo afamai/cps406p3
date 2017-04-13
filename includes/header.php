@@ -7,8 +7,17 @@
 			</div>
 			<ul class="nav navbar-nav">
 				<li><a href="?page=home">Home</a></li>
-				<li><a href="?page=profile">My Profile</a></li>
-				<li><a href="?page=report">Submit a Report</a></li>
+				<?php
+				if(!isset($_SESSION["username"]))
+				{
+					echo '<li><a href="?page=login">My Profile</a></li>
+						<li><a href="?page=login">Submit a Report</a></li>';
+				}
+				else{
+					echo '<li><a href="?page=profile">My Profile</a></li>
+					<li><a href="?page=report">Submit a Report</a></li>';
+				}
+				?>
 				<li><a href="?page=contacts">Contacts</a></li>
 				<li><a href="?page=FAQ">FAQ</a></li>
 				<li><a href="?page=invite">Invite a Friend</a></li>

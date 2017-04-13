@@ -8,7 +8,7 @@
 	$reportID = mysqli_real_escape_string($conn, $_POST['id']);
 	$accUsername = $_SESSION["username"];
 
-	$sql = "DELETE FROM report WHERE ID = $reportID AND accUsername = $accUsername";
+	$sql = "DELETE FROM reports WHERE reportID = $reportID AND accUsername = '$accUsername'";
 	if (!mysqli_query($conn, $sql))
 	{
 	    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
