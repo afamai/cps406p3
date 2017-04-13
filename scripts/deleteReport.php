@@ -5,7 +5,7 @@
     reportDescript VARCHAR(300) NOT NULL,
     reportLoc VARCHAR(25) NOT NULL,
     reportStatus SMALLINT NOT NULL DEFAULT 0,
-    reportType ENUM('Utility Failure', 'Potholes', 'Vandalism', 'Eroded Streets', 'Flooded Streets', 'Tree Collapse', 'Mould and Spore Growth', 'Garbage/other road Blocking Object') NOT NULL,
+    reportType SMALLINT NOT NULL,
     reportVotes INT NOT NULL DEFAULT 1
 ) ENGINE=InnoDB;
 
