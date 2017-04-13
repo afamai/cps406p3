@@ -9,9 +9,15 @@
 
 	$date_sql = "SELECT reportDate, reportDescript, reportLoc, reportVotes FROM report WHERE reportStatus = 0 ORDER BY reportDate DESC";
 	$priority_sql = "SELECT reportDate, reportDescript, reportLoc, reportVotes FROM report WHERE reportStatus = 0 ORDER BY reportVotes DESC";
-	$img_arr = array("/assets/utility.png","/assets/pothole.png","/assets/graffiti.png",
-					 "/assets/road.png","/assets/flood.png","/assets/tree.png","/assets/mould.png",
-					 "/assets/trash.png");
+	$img_arr = array(
+		"Utility Failure" => "/assets/utility.png",
+		"Potholes" => "/assets/pothole.png",
+		"Vandalism" => "/assets/graffiti.png",
+		"Eroded Streets" => "/assets/road.png",
+		"Flooded Streets" => "/assets/flood.png",
+		"Tree Collapse" => "/assets/tree.png",
+		"Mould and Spore Growth" => "/assets/mould.png",
+		"Garbage or Other Road Blocking Objects" => "/assets/trash.png");
 
 	$date_val = mysql_query( $date_sql, $conn ); 
 	$priority_val = mysql_query( $priority_sql, $conn ); 
