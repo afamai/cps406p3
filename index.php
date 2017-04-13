@@ -12,7 +12,7 @@ if(!empty($_GET['page']))
 		$content = $tmp . ".php";
 	}
 }
-if($content == "profile.html")
+if($content == "profile.html" || $content == "changePic.html" || $content == "changeInfo.html" || $content == "changePassword.html")
 {
 	include('layouts/profile.php');
 }

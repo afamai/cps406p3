@@ -9,7 +9,7 @@
     reportVotes INT NOT NULL DEFAULT 1
 ) ENGINE=InnoDB;
 
-ALTER TABLE report ADD CONSTRAINT report_refs FOREIGN KEY (accUsername) REFERENCES account (accUsername); -->
+ALTER TABLE report ADD CONSTRAINT report_refs FOREIGN KEY (accUsername) REFERENCES accounts (accUsername); -->
 
 <?php
 	session_start();

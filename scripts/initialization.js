@@ -16,3 +16,15 @@ function profileChangeInit()
 		error:function (){}
 	});
 }
+function profileInit()
+{
+	jQuery.ajax({
+		url: "scripts/getUserReports.php",
+		type: "POST",
+		success:function(data){
+			var reports = jQuery.parseJSON(data);
+			
+		},
+		error:function (){}
+	});
+}
