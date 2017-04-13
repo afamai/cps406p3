@@ -9,7 +9,7 @@
 	$reportDescript = mysqli_real_escape_string($conn, $_POST["description"]);
 	$reportLoc = mysqli_real_escape_string($conn, $_POST['address']);
 	$reportType = mysqli_real_escape_string($conn, $_POST['issue']);
-	$sql = "INSERT INTO reports (accUsername, reportDescript, reportLoc, reportType) 
+	$sql = "INSERT INTO report (accUsername, reportDescript, reportLoc, reportType) 
 	VALUES ('$accUsername', '$reportDescript', '$reportLoc', '$reportType')";
 	$result = mysqli_query($conn, $sql);
 	if (!$result)

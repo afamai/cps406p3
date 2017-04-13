@@ -10,7 +10,7 @@
 	$reportLoc = mysqli_real_escape_string($conn, $_POST['address']);
 	$reportType = mysqli_real_escape_string($conn, $_POST['issue']);
 
-	$sql = "UPDATE reports SET reportDescript='$reportDescript', reportLoc='$reportLoc', 
+	$sql = "UPDATE report SET reportDescript='$reportDescript', reportLoc='$reportLoc', 
 	reportType='$reportType' WHERE reportID = $reportID AND accUsername = '$accUsername'";
 	if (!mysqli_query($conn, $sql))
 	{

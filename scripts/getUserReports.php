@@ -7,7 +7,7 @@ if (!$conn) {
 }
 $user = $_SESSION['username'];
 $sql = "SELECT reportID, reportDate, reportDescript, reportLoc, reportStatus, reportType, reportVotes
-		FROM reports
+		FROM report
 		WHERE accUsername = '$user'";
 $result = mysqli_query($conn, $sql);
 if (!$result)
