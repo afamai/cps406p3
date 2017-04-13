@@ -4,11 +4,11 @@ MySQL Command
 
 CREATE TABLE accounts ( 
     Username VARCHAR(25) PRIMARY KEY, 
-    Password VARCHAR(25) NOT NULL, 
+    Password VARCHAR(200) NOT NULL, 
     Firstname VARCHAR(25) NOT NULL, 
-    Lastname VARCHAR(25) NOT NULL, 
+    Lastname VARCHAR(50) NOT NULL, 
     Phone VARCHAR(25) NOT NULL, 
-    Email VARCHAR(25) NOT NULL 
+    Email VARCHAR(100) NOT NULL 
 );
 
 CREATE TABLE report ( 
